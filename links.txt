@@ -1,0 +1,22 @@
+Snow Flake Important links 
+
+https://docs.snowflake.net/manuals/user-guide/intro-key-concepts.html
+
+https://snowflakecomputing.litmos.com/home/dashboard
+
+https://www.talend.com/blog/2017/04/05/building-a-governed-data-lake-in-the-cloud-transfered/
+
+https://www.snowflake.com/product/architecture/
+
+https://docs.snowflake.net/manuals/user-guide/intro-supported-features.html
+
+
+
+
+----Snowflake on Azure -----
+https://www.snowflake.com/blog/how-to-get-started-with-snowflake-on-azure/
+
+https://www.snowflake.com/blog/global-snowflake-loading-data-into-snowflake-from-azure-blob-storage/
+
+
+http://vms.in.capgemini.com/NonCGLogin/Index

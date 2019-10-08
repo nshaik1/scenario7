@@ -1,0 +1,53 @@
+-- Create a database. A database automatically includes a schema named 'public'.
+
+create or replace database mydatabase1;
+
+/* Create target tables for CSV and JSON data. The tables are temporary, meaning they persist only for the duration of the user session and are not visible to other users. */
+
+create or replace temporary table mycsvtable (
+  id integer,
+  last_name string,
+  first_name string,
+  company string,
+  email string,
+  workphone string,
+  cellphone string,
+  streetaddress string,
+  city string,
+  postalcode string);
+
+create or replace temporary table myjsontable (
+  json_data variant);
+
+-- Create a warehouse
+
+create or replace warehouse mywarehouse1 with
+  warehouse_size='X-SMALL'
+  auto_suspend = 120
+  auto_resume = true
+  initially_suspended=true;
+
+Step 1. ---Create File Format Objects----
+create or replace file format mycsvformat1
+  type = 'CSV'
+  field_delimiter = '|'
+  skip_header = 1;
+
+---Create JSON File Format----
+create or replace file format myjsonformat
+  type = 'JSON'
+  strip_outer_array = true;
+
+----Stage for CSV Data Files----
+create or replace stage my_csv_stage
+  file_format = mycsvformat;
+
+----Stage for JSON Data Files----
+create or replace stage my_json_stage
+  file_format = myjsonformat;
+
+===== Data Loading ======
+Step 3. Stage the Data Files
+CSV
+put file:\\C:\old laptop\Training_Materials\Snlowflake\Final_Session\SourceFiles\contacts*.csv @my_csv_stage auto_compress=true;
+
